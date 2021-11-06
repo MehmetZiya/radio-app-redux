@@ -37,7 +37,7 @@ const Channels = () => {
       {loading && <h1>Loading...</h1>}
       {error && <h1>{error.message}</h1>}
       <div className={styles.channelCard}>
-        {showChannels &&
+        {channels &&
           showChannels.map((channel) => (
             <Channel key={channel.id} channel={channel} />
           ))}

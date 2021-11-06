@@ -6,11 +6,19 @@ import {
   channelListReducer,
   channelDetailsReducer,
 } from './reducers/channelReducers'
+import {
+  programListReducer,
+  programDetailsReducer,
+} from './reducers/programReducers'
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
+
   channelList: channelListReducer,
   channelDetails: channelDetailsReducer,
+
+  programList: programListReducer,
+  programDetails: programDetailsReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
