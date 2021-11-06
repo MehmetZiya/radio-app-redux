@@ -45,36 +45,36 @@ const Navbar = () => {
 
       <div className={styles.menu}>
         <NavLink className={styles.navItem} to='/'>
-          <i class='fas fa-home'></i> Home
+          <i className='fas fa-home'></i> Home
         </NavLink>
         <NavLink className={styles.navItem} to='/channels'>
-          <i class='fas fa-music'></i>Channels
+          <i className='fas fa-music'></i>Channels
         </NavLink>
         <NavLink className={styles.navItem} to='/programs'>
-          <i class='fas fa-compass'></i> Programs
+          <i className='fas fa-compass'></i> Programs
         </NavLink>
         <NavLink className={styles.navItem} to='/categories'>
-          <i class='fas fa-sliders-h'></i> Categories
+          <i className='fas fa-sliders-h'></i> Categories
         </NavLink>
 
         {loggedUser ? (
           <>
             <span>
               <NavLink className={styles.navItem} to='/users/mypage'>
-                <i class='fas fa-tools'></i> My Page
+                <i className='fas fa-tools'></i> My Page
               </NavLink>
             </span>
 
             <span>
               <NavLink className={styles.navItem} to='/' onClick={handleLogout}>
-                <i class='fas fa-sign-out-alt'></i>Logout{' '}
+                <i className='fas fa-sign-out-alt'></i>Logout{' '}
               </NavLink>
             </span>
           </>
         ) : (
           <span>
             <NavLink className={styles.navItem} to='/login'>
-              <i class='fas fa-user'> </i> Login
+              <i className='fas fa-user'> </i> Login
             </NavLink>
           </span>
         )}
@@ -94,14 +94,14 @@ const Navbar = () => {
           />
           <NavLink onClick={handleLinkClick} className={styles.navItem} to='/'>
             {' '}
-            Home <i class='fas fa-home'></i>
+            Home <i className='fas fa-home'></i>
           </NavLink>
           <NavLink
             onClick={handleLinkClick}
             className={styles.navItem}
             to='/channels'
           >
-            Channels <i class='fas fa-music'></i>
+            Channels <i className='fas fa-music'></i>
           </NavLink>
           <NavLink
             onClick={handleLinkClick}
@@ -109,7 +109,7 @@ const Navbar = () => {
             to='/programs'
           >
             {' '}
-            Programs <i class='fas fa-compass'></i>{' '}
+            Programs <i className='fas fa-compass'></i>{' '}
           </NavLink>
           <NavLink
             onClick={handleLinkClick}
@@ -117,7 +117,7 @@ const Navbar = () => {
             to='/categories'
           >
             {' '}
-            Categories <i class='fas fa-sliders-h'></i>{' '}
+            Categories <i className='fas fa-sliders-h'></i>{' '}
           </NavLink>
 
           {loggedUser ? (
@@ -129,7 +129,7 @@ const Navbar = () => {
                   to='/users/mypage'
                 >
                   {' '}
-                  My Page <i class='fas fa-tools'></i>
+                  My Page <i className='fas fa-tools'></i>
                 </NavLink>
               </span>
               <span>
@@ -139,7 +139,7 @@ const Navbar = () => {
                   onClick={handleLogout}
                 >
                   {' '}
-                  Logout<i class='fas fa-sign-out-alt'></i>{' '}
+                  Logout<i className='fas fa-sign-out-alt'></i>{' '}
                 </NavLink>
               </span>
             </>
@@ -150,7 +150,7 @@ const Navbar = () => {
                 className={styles.navItem}
                 to='/login'
               >
-                Login<i class='fas fa-user'> </i>
+                Login<i className='fas fa-user'> </i>
               </NavLink>
             </span>
           )}

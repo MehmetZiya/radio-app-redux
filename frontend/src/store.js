@@ -10,7 +10,11 @@ import {
   programListReducer,
   programDetailsReducer,
 } from './reducers/programReducers'
-
+import {
+  categoryListReducer,
+  categoryDetailsReducer,
+  programsByCategoryReducer,
+} from './reducers/categoriReducers'
 const reducer = combineReducers({
   userLogin: userLoginReducer,
 
@@ -19,6 +23,10 @@ const reducer = combineReducers({
 
   programList: programListReducer,
   programDetails: programDetailsReducer,
+
+  categoryList: categoryListReducer,
+  categoryDetails: categoryDetailsReducer,
+  programsByCategory: programsByCategoryReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

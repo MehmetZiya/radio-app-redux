@@ -5,6 +5,7 @@ import styles from '../css/Channel.module.css'
 
 const Channel = ({ channel }) => {
   const history = useHistory()
+
   const goChannelDetails = () => {
     history.push(`/channels/${channel.id}`)
     window.scrollTo(0, 0)

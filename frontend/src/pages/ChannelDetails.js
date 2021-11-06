@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getChannelDetails } from '../actions/channelActions'
 import { Link } from 'react-router-dom'
 import styles from '../css/ChannelDetails.module.css'
+
 const ChannelDetails = ({ match }) => {
   const dispatch = useDispatch()
   const channelId = match.params.channelId
@@ -48,9 +49,13 @@ const ChannelDetails = ({ match }) => {
             </h3>
             <p>Channel Type : {channel.channeltype}</p>
           </div>
-          <audio controls className={styles.player}>
-            <source src={channel.liveaudio.url} />
-          </audio>
+
+          {channel.liveaudio && (
+            <audio controls className={styles.player}>
+              <source src={channel.liveaudio.url} />
+            </audio>
+          )}
+
           <div className={styles.btnGrp}>
             <button style={textColorObj} /* onClick={sendFavToDB} */>
               Add to Fav +
@@ -68,15 +73,17 @@ const ChannelDetails = ({ match }) => {
             <strong>{channel.tagline}</strong>
           </p>
           <div className={styles.btn}>
-            <a
-              href={channel.siteurl}
-              target='_blank'
-              style={bgColorObj}
-              rel='noopener noreferrer'
-            >
-              {' '}
-              Channel Website
-            </a>
+            {channel.siteurl && (
+              <a
+                href={channel.siteurl}
+                target='_blank'
+                style={bgColorObj}
+                rel='noopener noreferrer'
+              >
+                {' '}
+                Channel Website
+              </a>
+            )}
             <Link to={`/channels/programs/${channelId}`} style={bgColorObj}>
               Channels Programs
             </Link>

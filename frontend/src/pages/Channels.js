@@ -29,7 +29,7 @@ const Channels = () => {
     setNumber(number + 8)
   }
   return (
-    <div>
+    <>
       <div className={styles.logo}>
         <img src={SVRadio} alt='logo' />
       </div>
@@ -37,7 +37,7 @@ const Channels = () => {
       {loading && <h1>Loading...</h1>}
       {error && <h1>{error.message}</h1>}
       <div className={styles.channelCard}>
-        {channels &&
+        {showChannels &&
           showChannels.map((channel) => (
             <Channel key={channel.id} channel={channel} />
           ))}
@@ -47,7 +47,7 @@ const Channels = () => {
           <button onClick={handleClick}>Show More</button>
         )}
       </div>
-    </div>
+    </>
   )
 }
 
