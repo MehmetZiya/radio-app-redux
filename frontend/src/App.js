@@ -9,6 +9,8 @@ import ProgramsByCategory from './pages/ProgramsByCategory'
 import ChannelScedule from './pages/ChannelScedule'
 import ChannelsProgram from './pages/ChannelsProgram'
 import Home from './pages/Home'
+import LoginPage from './pages/LoginPage'
+import Register from './pages/Regsiter'
 
 const App = () => {
   return (
@@ -27,10 +29,11 @@ const App = () => {
         <Route path='/programs/:programId' element={<ProgramDetails />} />
         <Route path='/categories' element={<Categories />} />
         <Route
-          exact
           path='/categories/programs/:categoryId'
           element={<ProgramsByCategory />}
         />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
     </div>
   )
