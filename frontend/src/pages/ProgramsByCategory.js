@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   getCategoryDetails,
@@ -8,12 +8,13 @@ import {
 import Program from '../components/Program'
 import styles from '../css/ProgramsByCategory.module.css'
 
-const ProgramsByCategory = ({ match }) => {
+const ProgramsByCategory = () => {
   const [showPrograms, setShowPrograms] = useState([])
   const [number, setNumber] = useState(10)
-  const history = useHistory()
+  const navigate = useNavigate()
+  const params = useParams()
   const dispatch = useDispatch()
-  const categoryId = match.params.categoryId
+  const categoryId = params.categoryId
 
   const categoryDetails = useSelector((state) => state.categoryDetails)
   const {
@@ -49,17 +50,20 @@ const ProgramsByCategory = ({ match }) => {
       {detailsError && <h1>{detailsError.message}</h1>}
       {programs && (
         <div className={styles.allProgs}>
-          <span className={styles.back} onClick={() => history.goBack()}>
+          <span className={styles.back} onClick={() => navigate(-1)}>
             {' '}
             Back{' '}
           </span>
-          <h2>{category.name}</h2>
-          <div className={styles.programWrapper}>
-            {programs &&
-              showPrograms.map((program) => (
-                <Program key={program.id} program={program} />
-              ))}
+          <div>
+            <h2 className={styles.categoryName}>{category.name}</h2>
+            <div className={styles.programWrapper}>
+              {programs &&
+                showPrograms.map((program) => (
+                  <Program key={program.id} program={program} />
+                ))}
+            </div>
           </div>
+
           <div className={styles.button}>
             {programs && showPrograms.length < programs.length && (
               <button onClick={handleClick}>Show More</button>

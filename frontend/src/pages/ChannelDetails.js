@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getChannelDetails } from '../actions/channelActions'
-import { Link } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import styles from '../css/ChannelDetails.module.css'
 
-const ChannelDetails = ({ match }) => {
+const ChannelDetails = () => {
   const dispatch = useDispatch()
-  const channelId = match.params.channelId
+  const params = useParams()
+  const navigate = useNavigate()
+  const channelId = params.channelId
   const channelDetails = useSelector((state) => state.channelDetails)
   const { loading, error, channel } = channelDetails
 
@@ -25,6 +27,11 @@ const ChannelDetails = ({ match }) => {
       color: `#${channel.color}`,
     }
   }
+
+  const goSchedule = () => {
+    navigate(`/schedule/${channelId}`)
+    window.scrollTo(0, 0)
+  }
   return (
     <div className={styles.channelContainer}>
       {loading && <h1>Loading...</h1>}
@@ -38,6 +45,9 @@ const ChannelDetails = ({ match }) => {
 
       {channel && (
         <div className={styles.card} style={bgColorObj}>
+          <div className={styles.backButton} onClick={() => navigate(-1)}>
+            <i className='fas fa-arrow-alt-circle-left fa-2x'></i>
+          </div>
           <img
             className={styles.image}
             src={channel.image}
@@ -60,7 +70,7 @@ const ChannelDetails = ({ match }) => {
             <button style={textColorObj} /* onClick={sendFavToDB} */>
               Add to Fav +
             </button>
-            <button style={textColorObj} /* onClick={goSchedule} */>
+            <button style={textColorObj} onClick={goSchedule}>
               Schedule
             </button>
           </div>

@@ -1,12 +1,13 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import styles from '../css/Program.module.css'
 
 const Program = ({ program }) => {
-  const history = useHistory()
-
+  //const history = useHistory()
+  const navigate = useNavigate()
   const goProgramDetails = () => {
-    history.push(`/programs/${program.id}`)
+    navigate(`/programs/${program.id}`)
+    //history.push(`/programs/${program.id}`)
     window.scrollTo(0, 0)
   }
 

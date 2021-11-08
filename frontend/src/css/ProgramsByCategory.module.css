@@ -3,20 +3,20 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 .categoryContainer {
   position: relative;
   margin-top: 9rem;
 }
-.allProgs {
-  margin-top: 2rem;
-}
+
 .button {
   display: flex;
   justify-content: center;
 }
-
+.categoryName {
+  margin-top: 2rem;
+  text-align: center;
+}
 .back {
   background: rgb(202, 52, 52);
   color: white;

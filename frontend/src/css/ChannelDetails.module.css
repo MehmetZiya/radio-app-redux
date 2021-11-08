@@ -1,159 +1,154 @@
 .channelContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 5rem;
 }
 
 .image {
-    height: auto;
-    width: 150px;
-    border-radius: 3rem;
-    border: 1px solid white;
-    margin: 1rem;
+  height: auto;
+  width: 150px;
+  border-radius: 3rem;
+  border: 1px solid white;
+  margin: 1rem;
 }
-
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 90%;
-    margin: 3rem 2rem 1rem;
-    padding: 2rem;
-    text-align: center;
-    color: white;
-    border-radius: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 90%;
+  margin: 3rem 2rem 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
 .card button {
-    display: block;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 2rem;
-    font-size: large;
-    font-weight: 600;
+  display: block;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-size: large;
+  font-weight: 600;
 }
-  
+.backButton {
+  align-self: flex-start;
+  cursor: pointer;
+}
 .container {
-    padding: 2px 12px;
+  padding: 2px 12px;
 }
 
 .container p {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .player {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .channelInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
 .channelInfo a {
-    text-decoration: none;
-    padding: 1rem;
-    color:white;
-    font-size: large;
-    font-weight: 600;
-    border-radius: 2rem;
-   margin: 1rem;
+  text-decoration: none;
+  padding: 1rem;
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 2rem;
+  margin: 1rem;
 }
 .channelInfo a:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);  
-    transition: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+  transition: 0.4s;
 }
 
 .channelInfo p {
-    margin-bottom: 3rem;
-    width: 80%;
-  
+  margin-bottom: 3rem;
+  width: 80%;
 }
 
 .btn {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .btnGrp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
- .btnGrp button {
-     margin: 0.5rem;
-     font-size: small;
-     padding: 0.5rem;
- }
+.btnGrp button {
+  margin: 0.5rem;
+  font-size: small;
+  padding: 0.5rem;
+}
 .errorMessage {
-    margin:3rem 0.5rem 0.5rem;
-    padding: 1rem;
-    border-radius: 2rem;
-    background: rgb(253, 204, 192);
-    color: red;
-    font-size: large;
-    font-weight: 700;
-    text-align: center;
+  margin: 3rem 0.5rem 0.5rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  background: rgb(253, 204, 192);
+  color: red;
+  font-size: large;
+  font-weight: 700;
+  text-align: center;
 }
 .registerMsg {
-    margin:3rem 0.5rem 0.5rem;
-    padding: 1rem;
-    border-radius: 2rem;
-    background: rgb(152, 212, 230);
-    color: rgb(0, 15, 150);
-    font-size: large;
-    font-weight: 700;
+  margin: 3rem 0.5rem 0.5rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  background: rgb(152, 212, 230);
+  color: rgb(0, 15, 150);
+  font-size: large;
+  font-weight: 700;
 }
 .back {
-    background: rgb(202, 52, 52);
-    color:white;
-    border-radius: 25px; 
-    border: 1px solid rgb(202, 52, 52);
-    padding: 0.7rem;
-    cursor: pointer;
-    position: absolute;
-    left: 10px;
-    top:10px;
- }
- 
- .back:hover {
-     background: white;
-     color:rgb(202, 52, 52);
- }
+  background: rgb(202, 52, 52);
+  color: white;
+  border-radius: 25px;
+  border: 1px solid rgb(202, 52, 52);
+  padding: 0.7rem;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
 
-
+.back:hover {
+  background: white;
+  color: rgb(202, 52, 52);
+}
 
 @media (min-width: 768px) {
-    .card {
-        width: 70%;
-    } 
-    .btn {
-        flex-direction: row;
-    }
-}  
+  .card {
+    width: 70%;
+  }
+  .btn {
+    flex-direction: row;
+  }
+}
 
 @media (min-width: 992px) {
-   .card {
-       width: 60%;
-   } 
+  .card {
+    width: 60%;
+  }
 }
-   
-
 
 @media (min-width: 1200px) {
-    
 }

@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 0.4rem;
   position: fixed;
   top: 0;
   margin-bottom: 2rem;
@@ -81,6 +81,12 @@
 .closeIcon:hover {
   color: whitesmoke;
   background: red;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
 }
 
 @media (min-width: 1250px) {

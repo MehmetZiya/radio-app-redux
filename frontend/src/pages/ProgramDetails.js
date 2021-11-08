@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProgramDetails } from '../actions/programActions'
 import styles from '../css/ProgramDetails.module.css'
@@ -9,12 +9,13 @@ import {
   InstagramFilled,
 } from '@ant-design/icons'
 
-const ProgramDetails = ({ match }) => {
+const ProgramDetails = () => {
   const dispatch = useDispatch()
-  const programId = match.params.programId
+  const params = useParams()
+  const programId = params.programId
   //const [ showAddMsg, setShowAddMsg] = useState(false);
 
-  const history = useHistory()
+  const navigate = useNavigate()
   const programDetails = useSelector((state) => state.programDetails)
   const { loading, error, program } = programDetails
 
@@ -28,7 +29,7 @@ const ProgramDetails = ({ match }) => {
         <div className={styles.progDetails}>
           {loading && <h1>Loading...</h1>}
           {error && <h1>{error.message}</h1>}
-          <span className={styles.back} onClick={() => history.goBack()}>
+          <span className={styles.back} onClick={() => navigate(-1)}>
             {' '}
             Back{' '}
           </span>

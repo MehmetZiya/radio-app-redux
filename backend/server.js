@@ -18,7 +18,7 @@ app.use('/api/v1/users', userRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 
 app.listen(
   PORT,

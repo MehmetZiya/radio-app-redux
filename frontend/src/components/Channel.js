@@ -1,13 +1,14 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import channelImg from '../assets/channel.jpg'
 import styles from '../css/Channel.module.css'
 
 const Channel = ({ channel }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const goChannelDetails = () => {
-    history.push(`/channels/${channel.id}`)
+    navigate(`/channels/${channel.id}`)
+    //history.push(`/channels/${channel.id}`)
     window.scrollTo(0, 0)
   }
 

@@ -1,0 +1,53 @@
+.scheduleContainer {
+  padding: 2rem;
+  width: 90%;
+  margin-top: 9rem;
+}
+.scheduleContainer h2 {
+  margin-top: 2rem;
+}
+.table {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
+  background: white;
+}
+
+.table:hover {
+  background: rgb(119, 226, 194);
+}
+
+.title {
+  color: rgb(35, 65, 163);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.back {
+  background: rgb(202, 52, 52);
+  color: white;
+  border-radius: 25px;
+  border: 1px solid rgb(202, 52, 52);
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+.back:hover {
+  background: white;
+  color: rgb(202, 52, 52);
+}
+
+@media (min-width: 375px) {
+}
+
+@media (min-width: 768px) {
+  .scheduleContainer {
+    width: 75%;
+  }
+}
+
+@media (min-width: 992px) {
+  .scheduleContainer {
+    width: 60%;
+  }
+}

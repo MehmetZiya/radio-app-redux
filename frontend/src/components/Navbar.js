@@ -9,7 +9,7 @@ import { MenuOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
 const Navbar = () => {
   //const history = useHistory();
-  const loggedUser = true
+  const loggedUser = false
   const [showDropdown, setShowDropdown] = useState(false)
   const navRef = useRef()
 

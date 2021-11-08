@@ -1,0 +1,125 @@
+.channelCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.greeting {
+  margin: 0 auto;
+  font-size: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: darkblue;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.button {
+  text-align: center;
+  margin: 2rem auto;
+  background: rgb(0, 0, 0);
+  width: 20%;
+  min-width: 270px;
+  padding: 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  color: white;
+  border: 3px solid black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button:hover {
+  background: rgb(255, 255, 255);
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.programWrapper {
+  display: flex;
+  justify-content: center;
+}
+.categoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  text-decoration: none;
+  color: rgb(3, 78, 66);
+  background-color: aquamarine;
+  width: 300px;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 3px solid rgb(2, 80, 63);
+  text-align: center;
+}
+.popChannelTitle {
+  margin-top: -2rem;
+}
+.category:hover {
+  background-color: rgba(92, 228, 183, 0.795);
+}
+.logo {
+  width: 90%;
+  height: auto;
+
+  margin: 8rem auto 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  display: block;
+}
+
+@media (min-width: 375px) {
+  .button {
+    width: 50%;
+    padding: 0.5rem;
+  }
+  .topPrograms {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 70%;
+  }
+  .button {
+    width: 30%;
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    width: 20%;
+    padding: 0.5rem;
+  }
+  .topPrograms {
+    width: 80%;
+  }
+  .logo {
+    width: 55%;
+  }
+  .topCategories {
+    margin: 1rem 4rem;
+  }
+}

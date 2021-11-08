@@ -5,6 +5,8 @@ import { userLoginReducer } from './reducers/userReducers'
 import {
   channelListReducer,
   channelDetailsReducer,
+  channelScheduleReducer,
+  channelsProgramReducer,
 } from './reducers/channelReducers'
 import {
   programListReducer,
@@ -20,6 +22,8 @@ const reducer = combineReducers({
 
   channelList: channelListReducer,
   channelDetails: channelDetailsReducer,
+  channelSchedule: channelScheduleReducer,
+  channelsProgram: channelsProgramReducer,
 
   programList: programListReducer,
   programDetails: programDetailsReducer,
