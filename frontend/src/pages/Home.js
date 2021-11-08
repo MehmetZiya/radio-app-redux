@@ -28,6 +28,9 @@ const Home = () => {
     categories,
   } = categoryList
 
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   const [showChannels, setShowChannels] = useState([])
   const [showPrograms, setShowPrograms] = useState([])
   const [showCategories, setShowCategories] = useState([])
@@ -65,7 +68,11 @@ const Home = () => {
         <div className={styles.logo}>
           <img src={SVRadio} alt='logo' />
         </div>
+        {userInfo && (
+          <p className={styles.greeting}>Wellcome {userInfo.username}!</p>
+        )}
         <h2 className={styles.popChannelTitle}>Populer Channels</h2>
+
         {loading && <h1>Loading...</h1>}
         {error && <h1>{error.message}</h1>}
         <div className={styles.channelCard}>

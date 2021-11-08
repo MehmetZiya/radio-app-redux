@@ -1,21 +1,25 @@
 import { NavLink } from 'react-router-dom'
 import { useState, useRef } from 'react'
 //import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
 import logo from '../assets/logo.png'
 import OutsideClick from './OutsideClick'
 import styles from '../css/Navbar.module.css'
-
+import { logout } from '../actions/userActions'
 import { MenuOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
 const Navbar = () => {
-  //const history = useHistory();
-  const loggedUser = false
+  const dispatch = useDispatch()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   const [showDropdown, setShowDropdown] = useState(false)
   const navRef = useRef()
 
   const handleLogout = () => {
     setShowDropdown(false)
-    // history.push("/");
+    dispatch(logout())
   }
   const handleClick = () => {
     setShowDropdown(!showDropdown)
@@ -57,7 +61,7 @@ const Navbar = () => {
           <i className='fas fa-sliders-h'></i> Categories
         </NavLink>
 
-        {loggedUser ? (
+        {userInfo ? (
           <>
             <span>
               <NavLink className={styles.navItem} to='/users/mypage'>
@@ -120,7 +124,7 @@ const Navbar = () => {
             Categories <i className='fas fa-sliders-h'></i>{' '}
           </NavLink>
 
-          {loggedUser ? (
+          {userInfo ? (
             <>
               <span>
                 <NavLink

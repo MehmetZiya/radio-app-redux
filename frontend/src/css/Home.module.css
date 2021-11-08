@@ -8,10 +8,11 @@
 
 .greeting {
   margin: 0 auto;
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   color: darkblue;
+  margin-top: -2rem;
 }
 
 h2 {
@@ -69,9 +70,7 @@ a {
   border: 3px solid rgb(2, 80, 63);
   text-align: center;
 }
-.popChannelTitle {
-  margin-top: -2rem;
-}
+
 .category:hover {
   background-color: rgba(92, 228, 183, 0.795);
 }
@@ -86,6 +85,7 @@ a {
 
 .logo img {
   display: block;
+  margin-top: -1rem;
 }
 
 @media (min-width: 375px) {
@@ -105,6 +105,9 @@ a {
   .button {
     width: 30%;
     padding: 0.5rem;
+  }
+  .greeting {
+    font-size: 2rem;
   }
 }
 

@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
-    favList: [{ type: mongoose.Types.ObjectId, ref: 'Favorite' }],
+    favList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Favorite' }],
   },
   {
     timestamps: true,
