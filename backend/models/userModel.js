@@ -1,6 +1,12 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
+const favoriteSchema = mongoose.Schema({
+  favId: { type: Number, required: true },
+  classes: { type: String, required: true },
+  name: { type: String, required: true },
+  image: { type: String, required: true },
+})
 const userSchema = mongoose.Schema(
   {
     username: { type: String, required: true },
@@ -11,7 +17,7 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
-    favList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Favorite' }],
+    channelfavs: [favoriteSchema],
   },
   {
     timestamps: true,

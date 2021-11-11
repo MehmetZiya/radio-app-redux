@@ -1,16 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getChannelDetails } from '../actions/channelActions'
+import { addFav } from '../actions/userActions'
 import { Link, useParams, useNavigate } from 'react-router-dom'
+import Spinner from '../components/Spinner'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import styles from '../css/ChannelDetails.module.css'
+import Popup from '../components/Popup'
 
 const ChannelDetails = () => {
   const dispatch = useDispatch()
   const params = useParams()
   const navigate = useNavigate()
   const channelId = params.channelId
+
   const channelDetails = useSelector((state) => state.channelDetails)
   const { loading, error, channel } = channelDetails
+
+  const userAddFav = useSelector((state) => state.userAddFav)
+  const { loading: addFavLoading, error: addFavError, success } = userAddFav
 
   useEffect(() => {
     dispatch(getChannelDetails(channelId))
@@ -28,21 +37,34 @@ const ChannelDetails = () => {
     }
   }
 
+  const favChannel = {
+    favId: channelId,
+    classes: 'Channel',
+    name: channel.name,
+    image: channel.image,
+  }
+
+  const sendFavToDB = (e) => {
+    e.preventDefault()
+    dispatch(addFav(favChannel))
+    toast.success(`${channel.name} added your favorite list`, {
+      position: 'bottom-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  }
+
   const goSchedule = () => {
     navigate(`/schedule/${channelId}`)
     window.scrollTo(0, 0)
   }
+
   return (
     <div className={styles.channelContainer}>
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>{error.message}</h1>}
-      {/* {showAddMsg && (
-                <div>
-                    { !addingErrMsg ? <p className={styles.registerMsg}>{addMsg}</p> : <p className={styles.errorMessage}>{addingErrMsg}</p>}
-                </div>
-                
-            )} */}
-
       {channel && (
         <div className={styles.card} style={bgColorObj}>
           <div className={styles.backButton} onClick={() => navigate(-1)}>
@@ -67,7 +89,7 @@ const ChannelDetails = () => {
           )}
 
           <div className={styles.btnGrp}>
-            <button style={textColorObj} /* onClick={sendFavToDB} */>
+            <button style={textColorObj} onClick={sendFavToDB}>
               Add to Fav +
             </button>
             <button style={textColorObj} onClick={goSchedule}>
@@ -98,8 +120,14 @@ const ChannelDetails = () => {
               Channels Programs
             </Link>
           </div>
+          <Popup />
         </div>
       )}
+      {loading && <Spinner />}
+      {error && <Popup />}
+      {addFavLoading && <Spinner />}
+      {addFavError && <h1>{addFavError}</h1>}
+      {success && <Popup />}
     </div>
   )
 }

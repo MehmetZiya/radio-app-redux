@@ -11,6 +11,8 @@ import ChannelsProgram from './pages/ChannelsProgram'
 import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import Register from './pages/Regsiter'
+import MyPage from './pages/MyPage'
+import Edit from './pages/Edit'
 
 const App = () => {
   return (
@@ -34,6 +36,8 @@ const App = () => {
         />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/users/mypage' element={<MyPage />} />
+        <Route path='/users/edit' element={<Edit />} />
       </Routes>
     </div>
   )

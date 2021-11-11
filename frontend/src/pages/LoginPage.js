@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
 import styles from '../css/Register.module.css'
+import Spinner from '../components/Spinner'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
@@ -22,9 +23,7 @@ const LoginPage = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(email, password)
     dispatch(login(email, password))
-    console.log(userInfo)
   }
 
   return (
@@ -57,8 +56,8 @@ const LoginPage = () => {
         </div>
         {}
       </form>
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>{error.message}</h1>}
+      {loading && <Spinner />}
+      {error && <h1>{error}</h1>}
     </>
   )
 }

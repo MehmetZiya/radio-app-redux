@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userActions'
 
 import styles from '../css/Register.module.css'
+import Spinner from '../components/Spinner'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -63,8 +64,8 @@ const Register = () => {
           <button>Register</button>
         </div>
       </form>
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>{error.message}</h1>}
+      {loading && <Spinner />}
+      {error && <h1>{error}</h1>}
     </>
   )
 }

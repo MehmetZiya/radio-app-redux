@@ -7,6 +7,7 @@ import {
 } from '../actions/categoryActions'
 import Program from '../components/Program'
 import styles from '../css/ProgramsByCategory.module.css'
+import Spinner from '../components/Spinner'
 
 const ProgramsByCategory = () => {
   const [showPrograms, setShowPrograms] = useState([])
@@ -44,9 +45,9 @@ const ProgramsByCategory = () => {
 
   return (
     <div className={styles.categoryContainer}>
-      {loading && <h1>Loading...</h1>}
+      {loading && <Spinner />}
       {error && <h1>{error.message}</h1>}
-      {detailsLoading && <h1>Loading...</h1>}
+      {detailsLoading && <Spinner />}
       {detailsError && <h1>{detailsError.message}</h1>}
       {programs && (
         <div className={styles.allProgs}>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { getChannelsProgram } from '../actions/channelActions'
+import Spinner from '../components/Spinner'
 import styles from '../css/ChannelsProgram.module.css'
 
 const ChannelsProgram = () => {
@@ -35,7 +36,7 @@ const ChannelsProgram = () => {
       <h2 className={styles.programTitle}>
         {programs[0].channel.name} Programs
       </h2>
-      {loading && <h1>Loading...</h1>}
+      {loading && <Spinner />}
       {error && <h1>{error.message}</h1>}
       <span className={styles.back} onClick={() => navigate(-1)}>
         {' '}

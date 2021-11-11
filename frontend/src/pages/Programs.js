@@ -4,6 +4,7 @@ import Program from '../components/Program'
 import SVRadio from '../assets/SVRadio.png'
 import { allPrograms } from '../actions/programActions'
 import styles from '../css/Programs.module.css'
+import Spinner from '../components/Spinner'
 
 const Programs = () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const Programs = () => {
   const { loading, error, programs } = programList
 
   const [showPrograms, setShowProgramss] = useState([])
-  const [number, setNumber] = useState(8)
+  const [number, setNumber] = useState(38)
 
   useEffect(() => {
     dispatch(allPrograms())
@@ -20,7 +21,7 @@ const Programs = () => {
 
   useEffect(() => {
     if (programs) {
-      const showing = programs.slice(0, number)
+      const showing = programs.slice(26, number)
       setShowProgramss(showing)
     }
   }, [number, programs])
@@ -35,7 +36,7 @@ const Programs = () => {
           <img src={SVRadio} alt='logo' />
         </div>
         <h1>All Programs</h1>
-        {loading && <h1>Loading...</h1>}
+        {loading && <Spinner />}
         {error && <h1>{error.message}</h1>}
         <div className={styles.allProgram}>
           {showPrograms &&

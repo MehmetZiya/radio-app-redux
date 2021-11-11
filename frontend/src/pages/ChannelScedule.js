@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getChannelSchedule } from '../actions/channelActions'
+import Spinner from '../components/Spinner'
 import styles from '../css/ChannelSchedule.module.css'
 const ChannelScedule = () => {
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ const ChannelScedule = () => {
 
   return (
     <div className={styles.scheduleContainer}>
-      {loading && <h1>Loading...</h1>}
+      {loading && <Spinner />}
       {error && <h1>{error.message}</h1>}
       <span className={styles.back} onClick={() => navigate(-1)}>
         {' '}

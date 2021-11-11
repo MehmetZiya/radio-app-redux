@@ -8,6 +8,7 @@ import { allChannels } from '../actions/channelActions'
 import { allPrograms } from '../actions/programActions'
 import { allCategories } from '../actions/categoryActions'
 import styles from '../css/Home.module.css'
+import Spinner from '../components/Spinner'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -73,9 +74,9 @@ const Home = () => {
         )}
         <h2 className={styles.popChannelTitle}>Populer Channels</h2>
 
-        {loading && <h1>Loading...</h1>}
-        {error && <h1>{error.message}</h1>}
         <div className={styles.channelCard}>
+          {loading && <Spinner />}
+          {error && <h1>{error.message}</h1>}
           {channels &&
             showChannels.map((channel) => (
               <Channel key={channel.id} channel={channel} />
@@ -90,9 +91,10 @@ const Home = () => {
       <div className={styles.programWrapper}>
         <div className={styles.topPrograms}>
           <h2>Populer Programs</h2>
-          {programsLoading && <h1>Loading...</h1>}
-          {programsError && <h1>{error.message}</h1>}
+
           <div className={styles.channelCard}>
+            {programsLoading && <Spinner />}
+            {programsError && <h1>{error.message}</h1>}
             {programs &&
               showPrograms.map((program) => (
                 <Program key={program.id} program={program} />
@@ -107,9 +109,10 @@ const Home = () => {
       <hr />
       <div className={styles.topCategories}>
         <h2>Populer Categories</h2>
-        {categoryLoading && <h1>Loading...</h1>}
-        {categoryError && <h1>{error.message}</h1>}
+
         <div className={styles.categoryWrapper}>
+          {categoryLoading && <Spinner />}
+          {categoryError && <h1>{error.message}</h1>}
           {categories &&
             showCategories.map((category) => (
               <Link

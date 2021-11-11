@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { allCategories } from '../actions/categoryActions'
 import SVRadio from '../assets/SVRadio.png'
 import styles from '../css/Categories.module.css'
+import Spinner from '../components/Spinner'
 
 const Categories = () => {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const Categories = () => {
 
   return (
     <div className={styles.container}>
-      {loading && <h1>Loading...</h1>}
+      {loading && <Spinner />}
       {error && <h1>{error.message}</h1>}
       <div className={styles.logo}>
         <img src={SVRadio} alt='logo' />

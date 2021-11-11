@@ -4,6 +4,7 @@ import Channel from '../components/Channel'
 import SVRadio from '../assets/SVRadio.png'
 import { allChannels } from '../actions/channelActions'
 import styles from '../css/Channels.module.css'
+import Spinner from '../components/Spinner'
 
 const Channels = () => {
   const dispatch = useDispatch()
@@ -34,9 +35,10 @@ const Channels = () => {
         <img src={SVRadio} alt='logo' />
       </div>
       <h1>All Channels</h1>
-      {loading && <h1>Loading...</h1>}
-      {error && <h1>{error.message}</h1>}
+
       <div className={styles.channelCard}>
+        {loading && <Spinner />}
+        {error && <h1>{error.message}</h1>}
         {showChannels &&
           showChannels.map((channel) => (
             <Channel key={channel.id} channel={channel} />

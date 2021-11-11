@@ -6,12 +6,8 @@
 :root {
   --header-font: 'Courgette', cursive;
   --main-font: 'Open Sans', sans-serif;
-  --primary-color: #ffc388;
-  --secondary-color: #eaeaea;
-  --dark-color: #5b5b5b;
-  --error-color: rgb(252, 143, 143);
   --primary-button: rgba(0, 89, 124, 0.849);
-  --card-bg: #363636f2;
+  --secondary-color: #eaeaea;
 }
 
 * {
@@ -42,7 +38,9 @@ h5 {
 p {
   font-family: var(--main-font);
 }
-
+a {
+  text-decoration: none;
+}
 button {
   background: var(--primary-button);
   outline: none;

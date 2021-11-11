@@ -8,7 +8,6 @@ import connectDB from './config/connectDB.js'
 
 //Routes
 import userRoutes from './routes/userRoutes.js'
-import favoriteRoutes from './routes/favoriteRoutes.js'
 
 dotenv.config()
 connectDB()
@@ -18,7 +17,6 @@ const app = express()
 app.use(express.json())
 
 app.use('/api/users', userRoutes)
-app.use('/api/favs', favoriteRoutes)
 
 //Middleware
 /* if (process.env.NODE_ENV === 'production') {

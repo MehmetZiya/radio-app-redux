@@ -2,12 +2,14 @@ import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProgramDetails } from '../actions/programActions'
+import { addFav } from '../actions/userActions'
 import styles from '../css/ProgramDetails.module.css'
 import {
   FacebookFilled,
   TwitterSquareFilled,
   InstagramFilled,
 } from '@ant-design/icons'
+import Spinner from '../components/Spinner'
 
 const ProgramDetails = () => {
   const dispatch = useDispatch()
@@ -23,11 +25,23 @@ const ProgramDetails = () => {
     dispatch(getProgramDetails(programId))
   }, [dispatch, programId])
 
+  const FavProgram = {
+    favId: programId,
+    classes: 'Program',
+    name: program.name,
+    image: program.programimage,
+  }
+
+  const sendFavToDB = (e) => {
+    e.preventDefault()
+    dispatch(addFav(FavProgram))
+  }
+
   const renderProgram = () => {
     if (program) {
       return (
         <div className={styles.progDetails}>
-          {loading && <h1>Loading...</h1>}
+          {loading && <Spinner />}
           {error && <h1>{error.message}</h1>}
           <span className={styles.back} onClick={() => navigate(-1)}>
             {' '}
@@ -46,7 +60,7 @@ const ProgramDetails = () => {
                 {program.description}
               </p>
               <div className={styles.addButton}>
-                <button>Add to Fav+</button>
+                <button onClick={sendFavToDB}>Add to Fav+</button>
               </div>
             </div>
 
