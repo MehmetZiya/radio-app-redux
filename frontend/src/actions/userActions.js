@@ -2,6 +2,7 @@ import axios from 'axios'
 import {
   USER_ADD_FAV_FAIL,
   USER_ADD_FAV_REQUEST,
+  //USER_ADD_FAV_RESET,
   USER_ADD_FAV_SUCCESS,
   USER_DELETE_FAV_FAIL,
   USER_DELETE_FAV_REQUEST,
@@ -157,13 +158,6 @@ export const addFav = (favChannel) => async (dispatch, getState) => {
     dispatch({
       type: USER_ADD_FAV_SUCCESS,
     })
-    localStorage.setItem(
-      'userInfo',
-      JSON.stringify({
-        ...userInfo,
-        channelfavs: [...userInfo.channelfavs, favChannel],
-      })
-    )
   } catch (error) {
     dispatch({
       type: USER_ADD_FAV_FAIL,

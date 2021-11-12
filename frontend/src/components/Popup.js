@@ -1,22 +1,26 @@
 import React from 'react'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import 'animate.css'
+import styles from '../css/Popup.module.css'
 
-const Popup = () => {
-  return (
-    <div>
-      <ToastContainer
-        position='bottom-center'
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+const Popup = (props) => {
+  return props.success ? (
+    <div className='animate__animated animate__backInDown'>
+      <div className={styles.successPopup}>
+        <p>
+          <i className='fas fa-check-circle'></i> {props.success}
+        </p>
+      </div>
     </div>
+  ) : props.error ? (
+    <div className='animate__animated animate__backInDown'>
+      <div className={styles.errorPopup}>
+        <p>
+          <i className='fas fa-exclamation-circle'></i> {props.error}
+        </p>
+      </div>
+    </div>
+  ) : (
+    <div></div>
   )
 }
 

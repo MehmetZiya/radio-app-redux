@@ -1,6 +1,7 @@
 import {
   USER_ADD_FAV_FAIL,
   USER_ADD_FAV_REQUEST,
+  USER_ADD_FAV_RESET,
   USER_ADD_FAV_SUCCESS,
   USER_DELETE_FAV_FAIL,
   USER_DELETE_FAV_REQUEST,
@@ -70,7 +71,9 @@ export const userAddFavReducer = (state = { user: {} }, action) => {
     case USER_ADD_FAV_SUCCESS:
       return { loading: false, success: true }
     case USER_ADD_FAV_FAIL:
-      return { loading: false, error: action.payload }
+      return { loading: false, success: false, error: action.payload }
+    case USER_ADD_FAV_RESET:
+      return {}
     default:
       return state
   }

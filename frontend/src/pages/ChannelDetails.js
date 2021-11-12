@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getChannelDetails } from '../actions/channelActions'
 import { addFav } from '../actions/userActions'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Spinner from '../components/Spinner'
-import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import styles from '../css/ChannelDetails.module.css'
 import Popup from '../components/Popup'
@@ -13,6 +12,8 @@ const ChannelDetails = () => {
   const dispatch = useDispatch()
   const params = useParams()
   const navigate = useNavigate()
+  const [showPopup, setShowPopup] = useState(false)
+  const [showSuccessPopup, setSuccessShowPopup] = useState(false)
   const channelId = params.channelId
 
   const channelDetails = useSelector((state) => state.channelDetails)
@@ -47,15 +48,18 @@ const ChannelDetails = () => {
   const sendFavToDB = (e) => {
     e.preventDefault()
     dispatch(addFav(favChannel))
-    toast.success(`${channel.name} added your favorite list`, {
-      position: 'bottom-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    })
+    if (addFavError) {
+      setShowPopup(true)
+      setTimeout(() => {
+        setShowPopup(false)
+      }, 2500)
+    }
+    if (success) {
+      setSuccessShowPopup(true)
+      setTimeout(() => {
+        setSuccessShowPopup(false)
+      }, 2500)
+    }
   }
 
   const goSchedule = () => {
@@ -112,7 +116,6 @@ const ChannelDetails = () => {
                 style={bgColorObj}
                 rel='noopener noreferrer'
               >
-                {' '}
                 Channel Website
               </a>
             )}
@@ -120,14 +123,18 @@ const ChannelDetails = () => {
               Channels Programs
             </Link>
           </div>
-          <Popup />
         </div>
       )}
+
       {loading && <Spinner />}
-      {error && <Popup />}
+      {error && <h3>{error}</h3>}
       {addFavLoading && <Spinner />}
-      {addFavError && <h1>{addFavError}</h1>}
-      {success && <Popup />}
+
+      {showPopup && <Popup error={`${channel.name} already added`} />}
+
+      {showSuccessPopup && (
+        <Popup success={`${channel.name} added your favorite list`} />
+      )}
     </div>
   )
 }

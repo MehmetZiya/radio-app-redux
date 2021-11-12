@@ -16,7 +16,6 @@ export const authUser = asyncHandler(async (req, res) => {
       username: user.username,
       email: user.email,
       isAdmin: user.isAdmin,
-      channelfavs: user.channelfavs,
       token: generateToken(user._id),
     })
   } else {
@@ -50,7 +49,6 @@ export const registerUser = asyncHandler(async (req, res) => {
       username: user.username,
       email: user.email,
       isAdmin: user.isAdmin,
-      channelfavs: user.channelfavs,
       token: generateToken(user._id),
     })
   } else {
@@ -96,7 +94,6 @@ export const addToFav = asyncHandler(async (req, res) => {
     )
 
     if (alreadyAdded) {
-      console.log(alreadyAdded)
       res.status(400)
       throw new Error('Already added!')
     }

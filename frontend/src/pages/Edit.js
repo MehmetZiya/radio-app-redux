@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../actions/userActions'
-import styles from '../css/Edit.module.css'
 import Spinner from '../components/Spinner'
+import styles from '../css/Edit.module.css'
 
 const Edit = () => {
   const userLogin = useSelector((state) => state.userLogin)
@@ -42,7 +42,7 @@ const Edit = () => {
           <input type='email' disabled value={userInfo.email} />
         </div>
         <div className={styles.input}>
-          <label>Password :</label>
+          <label>New password :</label>
           <input
             type='password'
             onChange={(e) => setPassword(e.target.value)}

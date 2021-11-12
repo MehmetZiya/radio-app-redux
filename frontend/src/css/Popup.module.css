@@ -1,0 +1,25 @@
+.successPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 20rem;
+
+  background-color: rgb(201, 243, 208);
+  border: 2px solid green;
+  border-radius: 1rem;
+  color: green;
+}
+
+.errorPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 20rem;
+
+  background-color: rgb(252, 213, 213);
+  border: 2px solid rgb(248, 74, 74);
+  border-radius: 1rem;
+  color: rgb(248, 74, 74);
+}

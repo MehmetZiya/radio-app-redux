@@ -13,18 +13,19 @@ const Programs = () => {
   const { loading, error, programs } = programList
 
   const [showPrograms, setShowProgramss] = useState([])
-  const [number, setNumber] = useState(38)
+  const [number, setNumber] = useState(12)
 
   useEffect(() => {
     dispatch(allPrograms())
   }, [dispatch])
 
+  let reversedPrograms = programs.reverse()
   useEffect(() => {
-    if (programs) {
-      const showing = programs.slice(26, number)
+    if (reversedPrograms) {
+      let showing = reversedPrograms.slice(0, number)
       setShowProgramss(showing)
     }
-  }, [number, programs])
+  }, [number, reversedPrograms])
 
   const handleClick = () => {
     setNumber(number + 8)

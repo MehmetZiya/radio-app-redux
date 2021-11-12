@@ -1,25 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProgramDetails } from '../actions/programActions'
 import { addFav } from '../actions/userActions'
-import styles from '../css/ProgramDetails.module.css'
+import Spinner from '../components/Spinner'
+import Popup from '../components/Popup'
 import {
   FacebookFilled,
   TwitterSquareFilled,
   InstagramFilled,
 } from '@ant-design/icons'
-import Spinner from '../components/Spinner'
+import styles from '../css/ProgramDetails.module.css'
 
 const ProgramDetails = () => {
   const dispatch = useDispatch()
   const params = useParams()
   const programId = params.programId
-  //const [ showAddMsg, setShowAddMsg] = useState(false);
+  const [showPopup, setShowPopup] = useState(false)
+  const [showSuccessPopup, setSuccessShowPopup] = useState(false)
 
   const navigate = useNavigate()
+
   const programDetails = useSelector((state) => state.programDetails)
   const { loading, error, program } = programDetails
+
+  const userAddFav = useSelector((state) => state.userAddFav)
+  const { loading: addFavLoading, error: addFavError, success } = userAddFav
 
   useEffect(() => {
     dispatch(getProgramDetails(programId))
@@ -35,17 +41,26 @@ const ProgramDetails = () => {
   const sendFavToDB = (e) => {
     e.preventDefault()
     dispatch(addFav(FavProgram))
+    if (addFavError) {
+      setShowPopup(true)
+      setTimeout(() => {
+        setShowPopup(false)
+      }, 2500)
+    }
+    if (success) {
+      setSuccessShowPopup(true)
+      setTimeout(() => {
+        setSuccessShowPopup(false)
+      }, 2500)
+    }
   }
 
   const renderProgram = () => {
     if (program) {
       return (
         <div className={styles.progDetails}>
-          {loading && <Spinner />}
-          {error && <h1>{error.message}</h1>}
           <span className={styles.back} onClick={() => navigate(-1)}>
-            {' '}
-            Back{' '}
+            Back
           </span>
           <div className={styles.sections}>
             <div className={styles.sectionA}>
@@ -103,6 +118,17 @@ const ProgramDetails = () => {
                 <div></div>
               )}
             </div>
+          </div>
+          <div className={styles.popupContainer}>
+            {loading && <Spinner />}
+            {error && <h3>{error}</h3>}
+            {addFavLoading && <Spinner />}
+
+            {showPopup && <Popup error={`Program already added`} />}
+
+            {showSuccessPopup && (
+              <Popup success={`Program added your favorite list`} />
+            )}
           </div>
         </div>
       )
