@@ -16,7 +16,7 @@ export const allCategories = () => async (dispatch) => {
     dispatch({ type: ALL_CATEGORIES_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programcategories?format=json`
+      `https://api.sr.se/api/v2/programcategories?format=json`
     )
     dispatch({
       type: ALL_CATEGORIES_SUCCESS,
@@ -38,7 +38,7 @@ export const getCategoryDetails = (id) => async (dispatch) => {
     dispatch({ type: CATEGORY_DETAILS_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programcategories/${id}?format=json`
+      `https://api.sr.se/api/v2/programcategories/${id}?format=json`
     )
     dispatch({
       type: CATEGORY_DETAILS_SUCCESS,
@@ -61,7 +61,7 @@ export const getProgramsByCategory = (id) => async (dispatch) => {
     dispatch({ type: PROGRAMS_BY_CATEGORY_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programs/index?format=json&pagination=false&programcategoryid=${id}`
+      `https://api.sr.se/api/v2/programs/index?format=json&pagination=false&programcategoryid=${id}`
     )
     dispatch({
       type: PROGRAMS_BY_CATEGORY_SUCCESS,

@@ -13,7 +13,7 @@ export const allPrograms = () => async (dispatch) => {
     dispatch({ type: ALL_PROGRAMS_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programs?format=json&pagination=false`
+      `https://api.sr.se/api/v2/programs?format=json&pagination=false`
     )
     dispatch({
       type: ALL_PROGRAMS_SUCCESS,
@@ -36,7 +36,7 @@ export const getProgramDetails = (id) => async (dispatch) => {
     dispatch({ type: PROGRAM_DETAILS_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programs/${id}?format=json`
+      `https://api.sr.se/api/v2/programs/${id}?format=json`
     )
     dispatch({
       type: PROGRAM_DETAILS_SUCCESS,

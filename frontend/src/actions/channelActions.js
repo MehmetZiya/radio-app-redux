@@ -19,7 +19,7 @@ export const allChannels = () => async (dispatch) => {
     dispatch({ type: ALL_CHANNELS_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/channels?format=json&pagination=false`
+      `https://api.sr.se/api/v2/channels?format=json&pagination=false`
     )
     dispatch({
       type: ALL_CHANNELS_SUCCESS,
@@ -42,7 +42,7 @@ export const getChannelDetails = (id) => async (dispatch) => {
     dispatch({ type: CHANNEL_DETAILS_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/channels/${id}?format=json`
+      `https://api.sr.se/api/v2/channels/${id}?format=json`
     )
     dispatch({
       type: CHANNEL_DETAILS_SUCCESS,
@@ -65,7 +65,7 @@ export const getChannelSchedule = (id) => async (dispatch) => {
     dispatch({ type: CHANNEL_SCHEDULE_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/scheduledepisodes?format=json&pagination=false&channelId=${id}`
+      `https://api.sr.se/api/v2/scheduledepisodes?format=json&pagination=false&channelId=${id}`
     )
     dispatch({
       type: CHANNEL_SCHEDULE_SUCCESS,
@@ -88,7 +88,7 @@ export const getChannelsProgram = (id) => async (dispatch) => {
     dispatch({ type: CHANNELS_PROGRAM_REQUEST })
 
     const { data } = await axios.get(
-      `http://api.sr.se/api/v2/programs/index?channelid=${id}&format=json&pagination=false`
+      `https://api.sr.se/api/v2/programs/index?channelid=${id}&format=json&pagination=false`
     )
     dispatch({
       type: CHANNELS_PROGRAM_SUCCESS,
