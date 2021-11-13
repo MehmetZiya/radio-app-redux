@@ -39,7 +39,11 @@
 .logo img {
   display: block;
 }
-
+@media (max-width: 375px) {
+  .logo {
+    max-height: 4rem;
+  }
+}
 @media (min-width: 712px) {
   .logo {
     width: 60vw;
