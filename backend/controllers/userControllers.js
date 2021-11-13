@@ -106,7 +106,7 @@ export const addToFav = asyncHandler(async (req, res) => {
 
     user.channelfavs.push(favChannel)
     await user.save()
-    res.status(201).json({ success: 'favorite added' })
+    res.status(201).json({ success: 'Favorite added' })
   } else {
     res.status(404)
     throw new Error('User not found!')
@@ -121,12 +121,12 @@ export const deleteFav = asyncHandler(async (req, res) => {
   const { favId } = req.body
   if (user) {
     const deletedFav = user.channelfavs.find((f) => f._id.toString() === favId)
-    console.log(deletedFav)
+
     await user.channelfavs.pull(deletedFav._id)
 
     await user.save()
 
-    res.status(201).json({ success: 'favorite deleted' })
+    res.status(201).json({ success: 'Favorite deleted' })
   } else {
     res.status(404)
     throw new Error('User not found!')

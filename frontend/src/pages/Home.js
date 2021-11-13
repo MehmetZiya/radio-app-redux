@@ -35,12 +35,19 @@ const Home = () => {
   const [showChannels, setShowChannels] = useState([])
   const [showPrograms, setShowPrograms] = useState([])
   const [showCategories, setShowCategories] = useState([])
+  const [userName, setUserName] = useState()
 
   useEffect(() => {
     dispatch(allChannels())
     dispatch(allPrograms())
     dispatch(allCategories())
   }, [dispatch])
+
+  useEffect(() => {
+    if (userInfo) {
+      setUserName(userInfo.username)
+    }
+  }, [userInfo])
 
   useEffect(() => {
     if (channels) {
@@ -69,9 +76,7 @@ const Home = () => {
         <div className={styles.logo}>
           <img src={SVRadio} alt='logo' />
         </div>
-        {userInfo && (
-          <p className={styles.greeting}>Wellcome {userInfo.username}!</p>
-        )}
+        {userName && <p className={styles.greeting}>Wellcome {userName}!</p>}
         <h2 className={styles.popChannelTitle}>Populer Channels</h2>
 
         <div className={styles.channelCard}>

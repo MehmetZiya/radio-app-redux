@@ -88,10 +88,13 @@
   flex-direction: column;
   text-align: center;
 }
+.btn a {
+  font-size: 0.7rem;
+}
 
 .btnGrp {
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
 }
 .btnGrp button {
@@ -144,6 +147,12 @@
   }
   .btn {
     flex-direction: row;
+  }
+  .btn a {
+    font-size: 1.2rem;
+  }
+  .btnGrp button {
+    font-size: 1rem;
   }
 }
 

@@ -5,11 +5,13 @@ import { getProgramDetails } from '../actions/programActions'
 import { addFav } from '../actions/userActions'
 import Spinner from '../components/Spinner'
 import Popup from '../components/Popup'
+import LoginPopup from '../components/LoginPopup'
 import {
   FacebookFilled,
   TwitterSquareFilled,
   InstagramFilled,
 } from '@ant-design/icons'
+import { USER_ADD_FAV_RESET } from '../constants/userConstants'
 import styles from '../css/ProgramDetails.module.css'
 
 const ProgramDetails = () => {
@@ -20,6 +22,9 @@ const ProgramDetails = () => {
   const [showSuccessPopup, setSuccessShowPopup] = useState(false)
 
   const navigate = useNavigate()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const programDetails = useSelector((state) => state.programDetails)
   const { loading, error, program } = programDetails
@@ -37,22 +42,27 @@ const ProgramDetails = () => {
     name: program.name,
     image: program.programimage,
   }
-
-  const sendFavToDB = (e) => {
-    e.preventDefault()
-    dispatch(addFav(FavProgram))
+  useEffect(() => {
     if (addFavError) {
       setShowPopup(true)
-      setTimeout(() => {
-        setShowPopup(false)
-      }, 2500)
     }
     if (success) {
       setSuccessShowPopup(true)
+    }
+    return () => {
+      dispatch({ type: USER_ADD_FAV_RESET })
+      setTimeout(() => {
+        setShowPopup(false)
+      }, 2500)
       setTimeout(() => {
         setSuccessShowPopup(false)
       }, 2500)
     }
+  }, [success, addFavError, dispatch])
+
+  const sendFavToDB = (e) => {
+    e.preventDefault()
+    dispatch(addFav(FavProgram))
   }
 
   const renderProgram = () => {
@@ -123,8 +133,8 @@ const ProgramDetails = () => {
             {loading && <Spinner />}
             {error && <h3>{error}</h3>}
             {addFavLoading && <Spinner />}
-
-            {showPopup && <Popup error={`Program already added`} />}
+            {showPopup && !userInfo && <LoginPopup />}
+            {showPopup && userInfo && <Popup error={`Program already added`} />}
 
             {showSuccessPopup && (
               <Popup success={`Program added your favorite list`} />

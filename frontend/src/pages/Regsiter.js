@@ -5,6 +5,7 @@ import { register } from '../actions/userActions'
 
 import styles from '../css/Register.module.css'
 import Spinner from '../components/Spinner'
+import Popup from '../components/Popup'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -63,9 +64,9 @@ const Register = () => {
         <div className={styles.registerButton}>
           <button>Register</button>
         </div>
+        {loading && <Spinner />}
+        {error && <Popup error={error} />}
       </form>
-      {loading && <Spinner />}
-      {error && <h1>{error}</h1>}
     </>
   )
 }

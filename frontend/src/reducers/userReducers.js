@@ -5,9 +5,11 @@ import {
   USER_ADD_FAV_SUCCESS,
   USER_DELETE_FAV_FAIL,
   USER_DELETE_FAV_REQUEST,
+  USER_DELETE_FAV_RESET,
   USER_DELETE_FAV_SUCCESS,
   USER_EDIT_FAIL,
   USER_EDIT_REQUEST,
+  USER_EDIT_RESET,
   USER_EDIT_SUCCESS,
   USER_GET_FAV_FAIL,
   USER_GET_FAV_REQUEST,
@@ -59,6 +61,8 @@ export const userEditReducer = (state = { user: {} }, action) => {
       return { loading: false, success: true }
     case USER_EDIT_FAIL:
       return { loading: false, error: action.payload }
+    case USER_EDIT_RESET:
+      return {}
     default:
       return state
   }
@@ -87,6 +91,8 @@ export const userDeleteFavReducer = (state = { user: {} }, action) => {
       return { loading: false, success: true }
     case USER_DELETE_FAV_FAIL:
       return { loading: false, error: action.payload }
+    case USER_DELETE_FAV_RESET:
+      return {}
     default:
       return state
   }

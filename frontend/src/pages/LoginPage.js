@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userActions'
 import styles from '../css/Register.module.css'
 import Spinner from '../components/Spinner'
+import Popup from '../components/Popup'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
@@ -54,10 +55,9 @@ const LoginPage = () => {
         <div className={styles.loginButton}>
           <button type='submit'>Login</button>
         </div>
-        {}
+        {loading && <Spinner />}
+        {error && <Popup error={error} />}
       </form>
-      {loading && <Spinner />}
-      {error && <h1>{error}</h1>}
     </>
   )
 }

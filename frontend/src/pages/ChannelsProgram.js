@@ -33,19 +33,19 @@ const ChannelsProgram = () => {
 
   return (
     <div className={styles.progOfChannel}>
-      <h2 className={styles.programTitle}>
-        {programs[0].channel.name} Programs
-      </h2>
-      {loading && <Spinner />}
-      {error && <h1>{error.message}</h1>}
+      {/* <h2 className={styles.programTitle}>
+        {showPrograms && showPrograms[0].channel.name} Programs
+      </h2> */}
+
       <span className={styles.back} onClick={() => navigate(-1)}>
-        {' '}
-        Back{' '}
+        Back
       </span>
       <div className={styles.programs}>
         {programs &&
           showPrograms.map((program) => (
             <div className={styles.program} key={program.id}>
+              {loading && <Spinner />}
+              {error && <h1>{error.message}</h1>}
               <Link to={`/programs/${program.id}`} key={program.id}>
                 <img src={program.programimage} alt={program.name} />
               </Link>

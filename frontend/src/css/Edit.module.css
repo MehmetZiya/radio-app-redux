@@ -1,5 +1,5 @@
 .myPageContainer {
-  margin-top: 9rem;
+  margin-top: 5rem;
   padding: 2rem;
 }
 
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  margin-top: 9rem;
+  margin-top: 1rem;
 }
 
 .form input {
@@ -48,5 +48,10 @@ h3 {
 }
 
 .registerButton button {
-  margin-top: 2rem;
+  margin: 2rem;
+}
+@media (min-width: 768px) {
+  .myPageContainer {
+    margin-top: 7rem;
+  }
 }

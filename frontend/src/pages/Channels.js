@@ -35,7 +35,8 @@ const Channels = () => {
         <img src={SVRadio} alt='logo' />
       </div>
       <h1>All Channels</h1>
-
+      {loading && <Spinner />}
+      {error && <h1>{error.message}</h1>}
       <div className={styles.channelCard}>
         {loading && <Spinner />}
         {error && <h1>{error.message}</h1>}

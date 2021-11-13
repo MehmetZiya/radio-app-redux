@@ -4,9 +4,11 @@ import { getChannelDetails } from '../actions/channelActions'
 import { addFav } from '../actions/userActions'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Spinner from '../components/Spinner'
-import 'react-toastify/dist/ReactToastify.css'
-import styles from '../css/ChannelDetails.module.css'
 import Popup from '../components/Popup'
+import { USER_ADD_FAV_RESET } from '../constants/userConstants'
+import LoginPopup from '../components/LoginPopup'
+
+import styles from '../css/ChannelDetails.module.css'
 
 const ChannelDetails = () => {
   const dispatch = useDispatch()
@@ -15,6 +17,9 @@ const ChannelDetails = () => {
   const [showPopup, setShowPopup] = useState(false)
   const [showSuccessPopup, setSuccessShowPopup] = useState(false)
   const channelId = params.channelId
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const channelDetails = useSelector((state) => state.channelDetails)
   const { loading, error, channel } = channelDetails
@@ -44,22 +49,27 @@ const ChannelDetails = () => {
     name: channel.name,
     image: channel.image,
   }
-
-  const sendFavToDB = (e) => {
-    e.preventDefault()
-    dispatch(addFav(favChannel))
+  useEffect(() => {
     if (addFavError) {
       setShowPopup(true)
-      setTimeout(() => {
-        setShowPopup(false)
-      }, 2500)
     }
     if (success) {
       setSuccessShowPopup(true)
+    }
+    return () => {
+      dispatch({ type: USER_ADD_FAV_RESET })
+      setTimeout(() => {
+        setShowPopup(false)
+      }, 2500)
       setTimeout(() => {
         setSuccessShowPopup(false)
       }, 2500)
     }
+  }, [success, addFavError, dispatch])
+
+  const sendFavToDB = (e) => {
+    e.preventDefault()
+    dispatch(addFav(favChannel))
   }
 
   const goSchedule = () => {
@@ -127,10 +137,13 @@ const ChannelDetails = () => {
       )}
 
       {loading && <Spinner />}
-      {error && <h3>{error}</h3>}
-      {addFavLoading && <Spinner />}
+      {error && <Popup error={error} />}
 
-      {showPopup && <Popup error={`${channel.name} already added`} />}
+      {addFavLoading && <Spinner />}
+      {showPopup && !userInfo && <LoginPopup />}
+      {showPopup && userInfo && (
+        <Popup error={`${channel.name} already added`} />
+      )}
 
       {showSuccessPopup && (
         <Popup success={`${channel.name} added your favorite list`} />
