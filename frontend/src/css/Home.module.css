@@ -71,24 +71,17 @@ h2 {
   background-color: rgba(92, 228, 183, 0.795);
 }
 .logo {
-  width: 70vw;
-  height: auto;
-
-  margin: 4rem auto 1rem;
+  margin: 8rem auto 1rem;
   display: flex;
   justify-content: center;
 }
 
 .logo img {
   display: block;
-  margin-top: -1rem;
+  width: 70vw;
+  height: auto;
 }
 
-@media (max-width: 375px) {
-  .logo {
-    max-height: 4rem;
-  }
-}
 @media (min-width: 375px) {
   .button {
     width: 50%;

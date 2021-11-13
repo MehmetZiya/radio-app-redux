@@ -7,16 +7,15 @@
 }
 
 .logo {
-  width: 70vw;
-  height: auto;
-
-  margin: 9rem auto 2rem;
+  margin: 8rem auto 1rem;
   display: flex;
   justify-content: center;
 }
 
 .logo img {
   display: block;
+  width: 70vw;
+  height: auto;
 }
 
 h1 {
@@ -28,11 +27,7 @@ h1 {
   justify-content: center;
   margin-bottom: 2rem;
 }
-@media (max-width: 375px) {
-  .logo {
-    max-height: 4rem;
-  }
-}
+
 @media (min-width: 768px) {
   .logo {
     width: 60vw;
