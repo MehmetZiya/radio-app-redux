@@ -72,15 +72,13 @@ h2 {
 }
 .logo {
   margin: 8rem auto 1rem;
-
   display: flex;
   justify-content: center;
 }
 
 .logo img {
-  display: block;
   width: 70vw;
-  height: auto;
+  height: auto !important;
 }
 
 @media (min-width: 375px) {
