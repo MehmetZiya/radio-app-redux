@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 9rem;
+  margin-top: 6rem;
 }
 
 .sectionA {
@@ -114,4 +114,10 @@
   color: rgb(0, 15, 150);
   font-size: large;
   font-weight: 700;
+}
+
+@media (min-width: 712px) {
+  .sections {
+    margin-top: 9rem;
+  }
 }
