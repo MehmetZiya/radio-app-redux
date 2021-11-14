@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { allCategories } from '../actions/categoryActions'
-import SVRadio from '../assets/SVRadio.png'
+import SVRadio from '../assets/SVRadio.svg'
 import styles from '../css/Categories.module.css'
 import Spinner from '../components/Spinner'
 

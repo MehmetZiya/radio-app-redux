@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Channel from '../components/Channel'
-import SVRadio from '../assets/SVRadio.png'
+import SVRadio from '../assets/SVRadio.svg'
 import { allChannels } from '../actions/channelActions'
 import styles from '../css/Channels.module.css'
 import Spinner from '../components/Spinner'

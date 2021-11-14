@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Program from '../components/Program'
-import SVRadio from '../assets/SVRadio.png'
+import SVRadio from '../assets/SVRadio.svg'
 import { allPrograms } from '../actions/programActions'
 import styles from '../css/Programs.module.css'
 import Spinner from '../components/Spinner'

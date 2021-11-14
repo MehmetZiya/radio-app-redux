@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import SVRadio from '../assets/SVRadio.png'
+import SVRadio from '../assets/SVRadio.svg'
 import Channel from '../components/Channel'
 import Program from '../components/Program'
 import { allChannels } from '../actions/channelActions'
@@ -89,7 +89,7 @@ const Home = () => {
         </div>
 
         <Link to={'/channels'}>
-          <div className={styles.button}>Show All Cahnnels</div>
+          <div className={styles.button}>Show All Channels</div>
         </Link>
       </div>
       <hr />
