@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import { useState, useRef } from 'react'
-//import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import logo from '../assets/logo.png'
 import OutsideClick from './OutsideClick'
@@ -41,7 +40,6 @@ const Navbar = () => {
       {!showDropdown && (
         <div className={styles.logoLink}>
           <NavLink to='/'>
-            {' '}
             {<img className={styles.logoImg} src={logo} alt='logo' />}
           </NavLink>
         </div>
@@ -132,7 +130,6 @@ const Navbar = () => {
                   className={styles.navItem}
                   to='/users/mypage'
                 >
-                  {' '}
                   My Page <i className='fas fa-tools'></i>
                 </NavLink>
               </span>
@@ -142,8 +139,7 @@ const Navbar = () => {
                   to='/'
                   onClick={handleLogout}
                 >
-                  {' '}
-                  Logout<i className='fas fa-sign-out-alt'></i>{' '}
+                  Logout<i className='fas fa-sign-out-alt'></i>
                 </NavLink>
               </span>
             </>

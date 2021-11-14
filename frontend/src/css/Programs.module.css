@@ -14,7 +14,7 @@
 }
 
 .logo {
-  margin: 8rem auto 1rem;
+  margin: 6rem auto 1rem;
   display: flex;
   justify-content: center;
 }
@@ -38,6 +38,7 @@ h1 {
 @media (min-width: 768px) {
   .logo {
     width: 60vw;
+    margin: 8rem auto 1rem;
   }
 }
 
